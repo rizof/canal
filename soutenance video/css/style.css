@@ -1,0 +1,223 @@
+#content {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+                    /*LE FULLSCREEN DE LA VIDEO*/
+video {
+  background-color: black;
+  background-image: /* Ici, notre vidéo */;
+  background-position: center center;
+  background-size: contain;
+}
+
+#video {
+  z-index: -100;
+}
+
+#video-fond {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#video-fond > video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* 1. Pas de support d'object-fit */
+@media (min-aspect-ratio: 16/9) {
+  #video-fond > video {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  #video-fond > video {
+    width: 300%;
+    left: -100%;
+  }
+}
+/* 2. En cas de support d'object-fit, écrase les règles en (1) */
+@supports (object-fit: cover) {
+  #video-fond > video {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+                        /*position des elements de la video*/
+#controls {
+  z-index: 2;
+  margin-bottom: 100px;
+  position: relative;
+  top: 694px;
+  left: 30%;
+  display:none;
+}
+
+#time {
+  width: 505px;
+  display: inline-block;
+  height: 10px;
+}
+.ui-progressbar .ui-progressbar-value{
+    background: #0e78ba;  
+}
+#btn_volume {
+  border: solid 1px white;
+  margin-left: 58px;
+  background: black;
+  height: 20px;
+  width: 30px;
+  padding: 5px;
+}
+.ui-slider-handle.ui-state-default.ui-corner-all{
+  left: 65%;
+  width: 4px;
+  top: -8px;
+}
+
+#volume {
+  width: 50px;
+  margin-top: 12px;
+  position: absolute;
+  left: 98px;
+  height: 4px;
+  top: 17px;
+  background:#0e78ba;
+}
+
+#fullscreen {
+  border: 1px solid white;
+  margin-right: 65%;
+  position: absolute;
+  bottom: 3px;
+  left: 26.5%;
+}
+
+#play{
+  border: 1px solid white;
+  position: absolute;
+  bottom: 3px;
+  z-index: 2;
+}
+#pause{
+  border: 1px solid white;
+  position: absolute;
+  bottom: 3px;
+}
+.vost{
+  border: solid 1px white;
+  position: absolute;
+  left: 30.5%;
+  height: 30px
+}
+.vost img{
+    height: 29px;
+}
+
+
+
+                            /*navigation de cote*/
+#sidebar {
+    width: 22%;
+    height: 110%;
+    font-family: Arial, sans-serif;
+    color: #FFF;
+    position: absolute;
+    right: -25%;
+    padding: 36px 18px 96px 20px;
+    position: fixed;
+    top:0;
+}
+.back{  
+  background-color: black;
+  opacity: 0.5;
+  width: 22%;
+  height: 110%;
+  font-family: Arial, sans-serif;
+  color: #FFF;
+  position: absolute;
+  right: -27%;
+  padding: 36px 18px 96px 20px;
+  position: fixed;
+  top: 0;
+}
+.sidebar{
+        z-index: 2;
+}
+h1 {
+    color:#0194f0;
+    font-weight: bold;
+}
+h2 {
+    margin-top: 22px;
+    font-weight: normal;
+}
+
+.alliance {
+    margin-top: -29px;
+    font-weight: normal;
+}
+.alliance:after{
+    content:'';
+    border-bottom: 1px solid white;
+    height:1px;
+    width: 30px;
+}
+.episode {
+    background: url(images/episode1.jpeg) no-repeat;
+    width: 285px;
+    height: 159px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.episode2 {
+    background: url(images/episode2.png) no-repeat;
+    width: 285px;
+    height: 157px;
+}
+.barre{
+    border-top: solid white 1px;
+    height: 1px;
+    width: 133px;
+    margin-bottom: 20px;
+    margin-top: 18px;
+}
+
+/* les bouton*/
+#plus {
+    background:url(../img/plus.png) no-repeat;
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+}
+#moins {
+  background: url(../img/moins.png) no-repeat;
+  width: 34px;
+  height: 34px;
+  position: absolute;
+  top: 50%;
+  right: -20%;
+  position: fixed;
+}
+#retour{
+  position: absolute;
+  left: 10px;
+  display:none;
+}
